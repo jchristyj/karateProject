@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: tests.RunnerTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 15.907 sec <<< FAILURE!
+[2:11] demo1([tests/configdemo] config demo)  Time elapsed: 1.665 sec  <<< ERROR!
+com.intuit.karate.KarateException: status code was: 404, expected: 200, response time in milliseconds: 924, url: https://reqres.in/api/api/users%3Fpage=2, response: 
+{}
+classpath:tests/configdemo.feature:14
+	at <feature>.: Then status 200 (classpath:tests/configdemo.feature:14:14)
+
+[4:34] demo4([tests/Get] Demoo API)  Time elapsed: 0.438 sec  <<< ERROR!
+com.intuit.karate.KarateException: match failed: EQUALS
+  $ | not equal (STRING:STRING)
+  'Fields'
+  'Feilds'
+
+classpath:tests/Get.feature:43
+	at <feature>.: And match $.data[3].last_name == 'Feilds' (classpath:tests/Get.feature:43:43)
+
+[5:38] Post read from request file demo 5([tests/post] Post API demo)  Time elapsed: 0.405 sec  <<< ERROR!
+com.intuit.karate.KarateException: match failed: EQUALS
+  $ | not equal | actual does not contain key - 'name' (MAP:MAP)
+  {"id":"653","createdAt":"2023-01-12T18:41:06.510Z"}
+  {"id":"#string","createdAt":"#ignore","name":"chris","job":"tester"}
+
+
+classpath:tests/post.feature:48
+	at <feature>.: And match response == expectedOutput (classpath:tests/post.feature:48:48)
+
+[6:52] Post with reponse file demo 4([tests/post] Post API demo)  Time elapsed: 0.39 sec  <<< ERROR!
+com.intuit.karate.KarateException: match failed: EQUALS
+  $ | not equal | match failed for name: 'job' (MAP:MAP)
+  {"name":"chris","job":"engineer","id":"626","createdAt":"2023-01-12T18:41:06.902Z"}
+  {"name":"chris","job":"tester","id":"#string","createdAt":"#ignore"}
+
+    $.job | not equal (STRING:STRING)
+    'engineer'
+    'tester'
+
+classpath:tests/post.feature:59
+	at <feature>.: And match response == expectedOutput (classpath:tests/post.feature:59:59)
+

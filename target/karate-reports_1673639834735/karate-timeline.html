@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"tests\/configdemo[1:7]","start":1673548857964,"end":1673548858561,"title":"tests\/configdemo[1:7] 13:40:57.964-13:40:58.561 config demo 1"},{"id":2,"group":1,"content":"tests\/configdemo[2:11]","start":1673548858590,"end":1673548860260,"title":"tests\/configdemo[2:11] 13:40:58.590-13:41:00.260 demo1","className":"failed"},{"id":3,"group":1,"content":"tests\/FirstTest[1:3]","start":1673548861806,"end":1673548861986,"title":"tests\/FirstTest[1:3] 13:41:01.806-13:41:01.986 Test a sample get API"},{"id":4,"group":1,"content":"tests\/Get[1:8]","start":1673548862260,"end":1673548862423,"title":"tests\/Get[1:8] 13:41:02.260-13:41:02.423 demo1"},{"id":5,"group":1,"content":"tests\/Get[2:19]","start":1673548862447,"end":1673548862586,"title":"tests\/Get[2:19] 13:41:02.447-13:41:02.586 demo2"},{"id":6,"group":1,"content":"tests\/Get[3:26]","start":1673548862607,"end":1673548862764,"title":"tests\/Get[3:26] 13:41:02.607-13:41:02.764 demo3"},{"id":7,"group":1,"content":"tests\/Get[4:34]","start":1673548862786,"end":1673548863261,"title":"tests\/Get[4:34] 13:41:02.786-13:41:03.261 demo4","className":"failed"},{"id":8,"group":1,"content":"tests\/get1[1:3]","start":1673548863666,"end":1673548863781,"title":"tests\/get1[1:3] 13:41:03.666-13:41:03.781 Test a sample get API"},{"id":9,"group":1,"content":"tests\/post[1:8]","start":1673548863947,"end":1673548864824,"title":"tests\/post[1:8] 13:41:03.947-13:41:04.824 Post demo 1"},{"id":10,"group":1,"content":"tests\/post[2:15]","start":1673548864838,"end":1673548865199,"title":"tests\/post[2:15] 13:41:04.838-13:41:05.199 Post demo 2"},{"id":11,"group":1,"content":"tests\/post[3:22]","start":1673548865207,"end":1673548865574,"title":"tests\/post[3:22] 13:41:05.207-13:41:05.574 Post with assertions demo 3"},{"id":12,"group":1,"content":"tests\/post[4:30]","start":1673548865591,"end":1673548865958,"title":"tests\/post[4:30] 13:41:05.591-13:41:05.958 Post with reponse file demo 4"},{"id":13,"group":1,"content":"tests\/post[5:38]","start":1673548865978,"end":1673548866373,"title":"tests\/post[5:38] 13:41:05.978-13:41:06.373 Post read from request file demo 5","className":"failed"},{"id":14,"group":1,"content":"tests\/post[6:52]","start":1673548866386,"end":1673548866755,"title":"tests\/post[6:52] 13:41:06.386-13:41:06.755 Post with reponse file demo 4","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
